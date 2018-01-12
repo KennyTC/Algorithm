@@ -53,7 +53,7 @@ def LongestConsecutive3(a):
             counter = 1  # reset counter to 1, start counting a new chain
         print("counter=", counter)
     return longest
-# this method will O(nlogn) due to the sort. The space complexity will be O(1): if the sort the array in place.
+# this method will O(nlogn) due to the Sort. The space complexity will be O(1): if the Sort the array in place.
 # if the array is required not to change --> we need to copy to another array, then O(n)
 #####################################################################################################
 # 4. To optimize 2. We do not need to start from every element of array. We just need to start from elements beginning of the

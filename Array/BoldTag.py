@@ -6,7 +6,7 @@ def boldTag(s, list):
         if found != -1:  # found this in s
             if (found, found + len(item) - 1) not in l:
                 l.append((found, found + len(item) - 1))
-    # sort the first item of
+    # Sort the first item of
     l = sorted(l, key=lambda index: index[0])  # each item is a tuple(i,j), nên index[0] là phần tử đầu tiên của tuple
     ret = ""
     i = 0

@@ -1,40 +1,5 @@
-def MinimumWindow(s, t):
-    tset = set(t)
-    tlength = len(t)
-    done = False
-    # While length <= len(s) and not done:
-    #     i = 0
-    #     While i < len(s) - 1:
-    #         If set(s[i:i + length]) >= tset:
-    #             done = True
-    #             break
-    #         i = i + 1
-    #     length = length + 1
-    # return "" if done == False else s[i:i + length]
-    while tlength <= len(s) and not done:
-        i = 0
-        while i < len(s):
-            if set(s[i:i + tlength]) >= tset:
-                done = True
-                return s[i:i + tlength]
-            i = i + 1
-        length = tlength + 1
-    return ""
-
-
-S = "ab"
-T = "a"
-
-# print(MinimumWindow(S, T))
-# print(MinimumWindow("ADOBECODEBANC","ABC"))
-# print(MinimumWindow("a","a"))
-# print(MinimumWindow("aa","aa"))
-print(MinimumWindow("bbaa", "aba"))
-
-
-# take o(len(s)*len(s))
 #######################################################################################################################
-def MinimumWindow2(s, t):
+def MinimumWindow(s, t):
     """
     :type s: str
     :type t: str
@@ -44,6 +9,7 @@ def MinimumWindow2(s, t):
     # Idea: Two pointers: moving end forward to find a valid window,
     #                     moving start forward to find a smaller window
     #                     counter and hash_map to determine if the window is valid or not
+    # min_window_length contains minimum window length that satisfies conditions
 
     # Count the frequencies for chars in t
     hash_map = dict()
@@ -73,7 +39,7 @@ def MinimumWindow2(s, t):
             # And we decrease the hash_map value
             hash_map[s[end]] -= 1
 
-        # If the current window has all the desired chars
+        # valid window found. We increase "start" to find the minimum window
         while num_of_chars_to_be_included == 0:
             # See if this window is smaller
             if end - start + 1 < min_window_length:
@@ -97,6 +63,49 @@ def MinimumWindow2(s, t):
         return ""
     else:
         return s[min_window_start:min_window_start + min_window_length]
-print(MinimumWindow2("ADOBECODEBANC","ABC"))
 
+
+############################################################################################
+def MinimumWindow2(s, t):
+    hash_map = dict()
+    for c in t:
+        if c in hash_map:
+            hash_map[c] += 1
+        else:
+            hash_map[c] = 1
+    start, end = 0, 0
+    # min_window_start va min_window_length dung de luu tru ket qua cuoi cung. Neu ta chi dung start va end thi ko chinh xac, boi vi
+    # start, end thay doi lien tuc.
+    min_window_length = len(s)+1
+    # min_window_length= len(s) thi se gap van de:
+    #   + Gia su s=aa, t=aa --> ket qua tra ve la "", nhung dang le ra ket qua phai la aa
+    #   + Vi vay, min_window_length= len(s) + 1 de tranh truong hop nay
+    min_window_start = 0
+    num_of_chars_to_be_included = len(t)
+
+    while end < len(s):
+        if s[end] in hash_map:
+            if hash_map[s[end]] > 0:
+                num_of_chars_to_be_included -= 1
+                #num_of_chars_to_be_included se giam cho toi khi =0, khi no bang 0 nghia la cac character can thiet da tim thay.
+                # Ta bat dau chay den while de toi uu string
+            hash_map[s[end]] -= 1
+        while num_of_chars_to_be_included == 0:
+            if len(s[start:end + 1]) < min_window_length:
+                min_window_length = len(s[start:end + 1])
+                min_window_start = start
+            if s[start] in hash_map:
+                hash_map[s[start]] += 1
+                if hash_map[s[start]] > 0:
+                    num_of_chars_to_be_included += 1
+            start += 1
+        end += 1
+    if min_window_length == len(s)+1:# neu min_window_length khong thay doi gi so voi ban dau, thi chung to la s ko chua t
+        return ""
+    else:
+        return s[min_window_start:min_window_start + min_window_length]
+
+
+print(MinimumWindow2("ADOBECODEBANC", "ABC"))
+print(MinimumWindow2("AA", "AA"))
 # test github

@@ -11,38 +11,38 @@ def QuickSort(a, start, end):
     return a
 
 
-# def Partition(a, start, end):
-#     pivot = a[start]
-#     left, right = start + 1, end
-#     done = False
-#     while not done:
-#         while (left <= right and a[left] <= pivot):
-#             left = left + 1
-#         while (left <= right and a[right] >= pivot):
-#             right = right - 1
-#         if (right < left):
-#             done = True
-#         else:
-#             a[left], a[right] = a[right], a[left]
-#     a[right], a[start] = a[start], a[right]
-#     return right
+def Partition(a, start, end):
+    pivot = a[start]
+    left, right = start + 1, end
+    done = False
+    while not done:
+        while (left <= right and a[left] <= pivot):
+            left = left + 1
+        while (left <= right and a[right] >= pivot):
+            right = right - 1
+        if (right < left):
+            done = True
+        else:
+            a[left], a[right] = a[right], a[left]
+    a[right], a[start] = a[start], a[right]
+    return right
 
-#
-# def Partition(a, start, end):
-#     pivot = a[end]
-#     left, right = start, end - 1
-#     done = False
-#     while not done:
-#         while (left <= right and a[left] <= pivot):
-#             left = left + 1
-#         while (left <= right and a[right] >= pivot):
-#             right = right - 1
-#         if (right < left):
-#             done = True
-#         else:
-#             a[left], a[right] = a[right], a[left]
-#     a[left], a[end] = a[end], a[left]
-#     return left
+
+def Partition(a, start, end):
+    pivot = a[end]
+    left, right = start, end - 1
+    done = False
+    while not done:
+        while (left <= right and a[left] <= pivot):
+            left = left + 1
+        while (left <= right and a[right] >= pivot):
+            right = right - 1
+        if (right < left):
+            done = True
+        else:
+            a[left], a[right] = a[right], a[left]
+    a[left], a[end] = a[end], a[left]
+    return left
 
 #################################################################################
 # Chi su dung 1 function
@@ -87,8 +87,8 @@ def Quicksort2(a):
         return first_part + second_part
 
 
-alist = [3, 7, 5, 9, 2, 1, 5,12,34,33,12,687,89]
-print(Quicksort2(alist))
+# alist = [3, 7, 5, 9, 2, 1, 5,12,34,33,12,687,89]
+# print(Quicksort2(alist))
 
 # print(quicksort(alist))
-##################################################3
+

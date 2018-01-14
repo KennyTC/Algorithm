@@ -1,8 +1,9 @@
 # Python program to check if given two strings are
 # at distance one
-
 # Returns true if edit distance between s1 and s2 is
 # one, else false
+##################################################################################################
+
 def isEditDistanceOne(s1, s2):
     # Find lengths of given strings
     m = len(s1)
@@ -43,7 +44,7 @@ def isEditDistanceOne(s1, s2):
     return count == 1
 
 #print(isEditDistanceOne("geek","seek"))
-#################################################3
+##################################################################################################
 # 2. Idea: Bởi chỉ khác nhau một character nên, nếu như ta thấy 1 chỗ khác nhau rồi, thì đoạn còn lại chắc chắn phải giống nhau.
 # Ta loop cả 2 string đồng thời, nếu có một chỗ khác nhau thì ta so sánh đoạn string còn lại, tính từ chỗ khác nhau đó.
 # Nhưng đoạn loop này ko xử lý đc 2 trings giống nhau y hệt đoạn đầu, vd goose - goosekkkkks, nên ta phải xử lý thêm ở đoạn return

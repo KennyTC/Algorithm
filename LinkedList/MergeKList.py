@@ -1,3 +1,5 @@
+# Merge k sorted linked lists and return it as one sorted list.
+##############################################################################################################################################
 from queue import PriorityQueue
 
 
@@ -109,6 +111,7 @@ class Solution(object):
             point.insert(i)
         point.listall()
 
+    ##############################################################################################################################################
     # using PriorityQueue.
     # from queue import PriorityQueue
     def MergeKLists2(self, linkedlist1, linkedlist2, linkedlist3):

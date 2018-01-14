@@ -1,3 +1,8 @@
+
+# Given a string, find the longest substring that contains only two unique characters.
+# For example, given "abcbbbbcccbdddadacb", the longest substring that contains 2 unique character is "bcbbbbcccb".
+# More generally, substrings contain k distinct characters
+
 # Brute force
 # length of string is n --> n*(n+1)/2 possible substrings.
 # A simple way is to generate all the substring and check each one whether it has exactly k unique characters or not.
@@ -21,8 +26,6 @@ def lengthOfLongestSubstringKDistinct(s, k):
 
 
 # print("Method1:eceba 2:{}".format(lengthOfLongestSubstringKDistinct("eceba", 2)))
-
-
 ########################################################################################################################
 # 2.
 # Use dictionary d to keep track of (character, location) pair,

@@ -1,3 +1,4 @@
+
 def LongestConsecutive1(a):
     a = sorted(a)
     print(a)

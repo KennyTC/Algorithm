@@ -1,3 +1,2 @@
-# Algorithm
-Algorithm and Data Structure
-Here is some exercises good for practice implementing data structures to solve different problems
+# Algorithm & Data Structure
+Here are some exercises implementing data structures to solve different problems in Python
